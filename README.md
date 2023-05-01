@@ -1,5 +1,7 @@
 # GPT on LINE
 
+![System](/image/system.png)
+
 Using Chalice and AWS CDK, we will build a REST API that will serve as a webhook for LINE bot. We use AWS API Gate way, Lambda, and Dynamo DB.
 
 ## Credentials
@@ -61,6 +63,15 @@ Deploy with the following command.
 cd infrastructure
 cdk bootstrap --profile chalice
 cdk deploy --profile chalice
+```
+
+If you are using a virtual environment and receive the following error, deactivate the virtual environment and re-activate it.
+
+```bahs
+Traceback (most recent call last):
+  File "/Users/masafumi/work/chatgpt_aws_line/infrastructure/app.py", line 3, in <module>
+    from aws_cdk import core as cdk
+ModuleNotFoundError: No module named 'aws_cdk'
 ```
 
 After deployment is complete, the API Gateway URL will be displayed. Copy this and set it to the webhook URL of LINE Bot as `https://YOUR_ADDRESS/callback`.
